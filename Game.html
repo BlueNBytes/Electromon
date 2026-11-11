@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte Frontiers </title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: gray;
+        }
+
+        iframe {
+            width: 520px;
+            height: 400px;
+            max-width: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="game-wrapper">
+        <button onclick="openGameWindow()">Launch widget mode</button>
+        <p>when widget mode is open close the browser tab of the game for it to run smoothly
+        </p>
+
+        <h1>Electromon Moniter</h1>
+        <!-- widget/index.html sends you to widget/Signin.html first if you are not signed in -->
+        <iframe title="Byte Frontiers" src="widget/index.html"></iframe>
+        <p>view and interact with your Electromon</p>
+    </div>
+
+    <script>
+        // The game itself runs inside the iframe / widget window (widget/game.js),
+        // so this page only needs the launcher.
+        function openGameWindow() {
+            const windowFeatures = "width=520,height=400,menubar=no,toolbar=no,location=no,status=no";
+            window.open("widget/index.html", "GameWindow", windowFeatures);
+        }
+    </script>
+</body>
+
+</html>
